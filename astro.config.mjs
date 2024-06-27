@@ -79,7 +79,12 @@ export default defineConfig({
         link: 'guide/database-integration'
       }
       ]
-
+    }, {
+      label: 'API reference',
+      items: [{
+        label: '4.x',
+        link: '/4x/api'
+      }]
     }],
     social: {
       github: 'https://github.com/expressjs/express'
