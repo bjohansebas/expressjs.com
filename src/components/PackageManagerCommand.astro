@@ -1,0 +1,33 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import { TabItem, Tabs } from "@astrojs/starlight/components";
+---
+
+<Tabs syncKey="command">
+  <TabItem label="npm" icon="seti:npm">
+    <Code
+      code={`${Astro.props.npx ? "npx" : "npm"} ${Astro.props.npx ?? Astro.props.npm ?? Astro.props.command}`}
+      lang="bash"
+    />
+  </TabItem>
+  {
+    Astro.props.pnpm != null ? (
+      <TabItem label="pnpm" icon="pnpm">
+        <Code
+          code={`pnpm ${Astro.props.pnpm ?? Astro.props.command}`}
+          lang="bash"
+        />
+      </TabItem>
+    ) : null
+  }
+  {
+    Astro.props.bun != null || Astro.props.bunx != null ? (
+      <TabItem label="bun" icon="bun">
+        <Code
+          code={`bun${Astro.props.bun ? "" : "x"} ${Astro.props.bunx ?? Astro.props.bun ?? Astro.props.command}`}
+          lang="bash"
+        />
+      </TabItem>
+    ) : null
+  }
+</Tabs>

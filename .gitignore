@@ -10,3 +10,6 @@ Gemfile.lock
 .jekyll-metadata
 vendor
 .bundle
+
+# Astro
+.astro/
