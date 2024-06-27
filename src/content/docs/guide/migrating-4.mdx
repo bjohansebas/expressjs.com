@@ -1,11 +1,6 @@
 ---
-layout: page
-title: Migrating to Express 4
-menu: guide
-lang: en
-redirect_from: "/guide/migrating-4.html"
+title: Moving to Express 4
 ---
-# Moving to Express 4
 
 <h2 id="overview">Overview</h2>
 
@@ -19,15 +14,20 @@ This article covers:
   <li><a href="#app-gen">Upgrading to the Express 4 app generator</a>.</li>
 </ul>
 
-<h2 id="changes">Changes in Express 4</h2>
+## Changes in Express 4
 
 There are several significant changes in Express 4:
 
 <ul class="doclist">
-  <li><a href="#core-changes">Changes to Express core and middleware system.</a> The dependencies on Connect and built-in middleware were removed, so you must add middleware yourself.
+  <li>
+  <a href="#core-changes">Changes to Express core and middleware system.</a> The dependencies on Connect and built-in middleware were removed, so you must add middleware yourself.
   </li>
-  <li><a href="#routing">Changes to the routing system.</a></li>
-  <li><a href="#other-changes">Various other changes.</a></li>
+  <li>
+  <a href="#routing">Changes to the routing system.</a>
+  </li>
+  <li>
+  <a href="#other-changes">Various other changes.</a>
+  </li>
 </ul>
 
 See also:
@@ -35,9 +35,7 @@ See also:
 * [New features in 4.x.](https://github.com/expressjs/express/wiki/New-features-in-4.x)
 * [Migrating from 3.x to 4.x.](https://github.com/expressjs/express/wiki/Migrating-from-3.x-to-4.x)
 
-<h3 id="core-changes">
-Changes to Express core and middleware system
-</h3>
+### Changes to Express core and middleware system
 
 Express 4 no longer depends on Connect, and removes all built-in
 middleware from its core, except for the `express.static` function. This means that
@@ -94,7 +92,7 @@ In most cases, you can simply replace the old version 3 middleware with
 its Express 4 counterpart. For details, see the module documentation in
 GitHub.
 
-<h4 id="app-use"><code>app.use</code> accepts parameters</h4>
+#### <code>app.use</code> accepts parameters
 
 In version 4 you can use a variable parameter to define the path where middleware functions are loaded, then read the value of the parameter from the route handler.
 For example:
@@ -105,9 +103,8 @@ app.use('/book/:id', (req, res, next) => {
   next()
 })
 ```
-<h3 id="routing">
-The routing system
-</h3>
+
+### The routing system
 
 Apps now implicitly load routing middleware, so you no longer have to
 worry about the order in which middleware is loaded with respect to
@@ -116,15 +113,14 @@ the `router` middleware.
 The way you define routes is unchanged, but the routing system has two
 new features to help organize your routes:
 
-{: .doclist }
 * A new method, `app.route()`, to create chainable route handlers for a route path.
 * A new class, `express.Router`, to create modular mountable route handlers.
 
-<h4 id="app-route"><code>app.route()</code> method</h4>
+#### <code>app.route()</code> method
 
 The new `app.route()` method enables you to create chainable route handlers
 for a route path. Because the path is specified in a single location, creating modular routes is helpful, as is reducing redundancy and typos. For more
-information about routes, see [`Router()` documentation](/{{ page.lang }}/4x/api.html#router).
+information about routes, see [`Router()` documentation](/4x/api.html#router).
 
 Here is an example of chained route handlers that are defined by using the `app.route()` function.
 
@@ -141,7 +137,7 @@ app.route('/book')
   })
 ```
 
-<h4 id="express-router"><code>express.Router</code> class</h4>
+#### <code>express.Router</code> class
 
 The other feature that helps to organize routes is a new class,
 `express.Router`, that you can use to create modular mountable
@@ -189,9 +185,7 @@ The app will now be able to handle requests to the `/birds` and
 `/birds/about` paths, and will call the `timeLog`
 middleware that is specific to the route.
 
-<h3 id="other-changes">
-Other changes
-</h3>
+### Other changes
 
 The following table lists other small but important changes in Express 4:
 
@@ -308,16 +302,14 @@ Functionality is now limited to setting the basic cookie value. Use
 </tr>
 </table>
 
-<h2 id="example-migration">Example app migration</h2>
+## Example app migration
 
 Here is an example of migrating an Express 3 application to Express 4.
 The files of interest are `app.js` and `package.json`.
 
-<h3 id="">
-Version 3 app
-</h3>
+### Version 3 app
 
-<h4 id=""><code>app.js</code></h4>
+#### <code>app.js</code>
 
 Consider an Express v.3 application with the following `app.js` file:
 
@@ -355,7 +347,7 @@ http.createServer(app).listen(app.get('port'), () => {
 })
 ```
 
-<h4 id=""><code>package.json</code></h4>
+#### <code>package.json</code>
 
 The accompanying version 3 `package.json` file might look
   something like this:
@@ -375,16 +367,14 @@ The accompanying version 3 `package.json` file might look
 }
 ```
 
-<h3 id="">
-Process
-</h3>
+### Process
 
 Begin the migration process by installing the required middleware for the
 Express 4 app and updating Express and Pug to their respective latest
 version with the following command:
 
-```console
-$ npm install serve-favicon morgan method-override express-session body-parser multer errorhandler express@latest pug@latest --save
+```bash
+npm install serve-favicon morgan method-override express-session body-parser multer errorhandler express@latest pug@latest --save
 ```
 
 Make the following changes to `app.js`:
@@ -402,9 +392,9 @@ Make the following changes to `app.js`:
 
 3. Make sure that the middleware functions are loaded in the correct order - load `errorHandler` after loading the app routes.
 
-<h3 id="">Version 4 app</h3>
+### Version 4 app
 
-<h4 id=""><code>package.json</code></h4>
+#### <code>package.json</code>
 
 Running the above `npm` command will update `package.json` as follows:
 
@@ -430,7 +420,7 @@ Running the above `npm` command will update `package.json` as follows:
 }
 ```
 
-<h4 id=""><code>app.js</code></h4>
+#### <code>app.js</code>
 
 Then, remove invalid code, load the required middleware, and make other
 changes as necessary. The `app.js` file will look like this:
@@ -493,40 +483,40 @@ app.listen(app.get('port'), () => {
 ```
 </div>
 
-<h3 id="">Run the app</h3>
+### Run the app
 
 The migration process is complete, and the app is now an
 Express 4 app. To confirm, start the app by using the following command:
 
-```console
-$ node .
+```bash
+node .
 ```
 
 Load [http://localhost:3000](http://localhost:3000)
   and see the home page being rendered by Express 4.
 
-<h2 id="app-gen">Upgrading to the Express 4 app generator</h2>
+## Upgrading to the Express 4 app generator
 
 The command-line tool to generate an Express app is still
   `express`, but to upgrade to the new version, you must uninstall
   the Express 3 app generator and then install the new
   `express-generator`.
 
-<h3 id="">Installing </h3>
+### Installing
 
 If you already have the Express 3 app generator installed on your system,
 you must uninstall it:
 
-```console
-$ npm uninstall -g express
+```bash
+npm uninstall -g express
 ```
 Depending on how your file and directory privileges are configured,
 you might need to run this command with `sudo`.
 
 Now install the new generator:
 
-```console
-$ npm install -g express-generator
+```bash
+npm install -g express-generator
 ```
 
 Depending on how your file and directory privileges are configured,
@@ -535,21 +525,20 @@ you might need to run this command with `sudo`.
 Now the `express` command on your system is updated to the
 Express 4 generator.
 
-<h3 id="">Changes to the app generator </h3>
+### Changes to the app generator
 
 Command options and use largely remain the same, with the following exceptions:
 
-{: .doclist }
 * Removed the `--sessions` option.
 * Removed the `--jshtml` option.
 * Added the `--hogan` option to support [Hogan.js](http://twitter.github.io/hogan.js/).
 
-<h3 id="">Example</h3>
+### Example
 
 Execute the following command to create an Express 4 app:
 
-```console
-$ express app4
+```bash
+express app4
 ```
 
 If you look at the contents of the `app4/app.js` file, you will notice
@@ -561,8 +550,8 @@ You will also notice that the `app.js` file is now a Node.js module, in contrast
 
 After installing the dependencies, start the app by using the following command:
 
-```console
-$ npm start
+```bash
+npm start
 ```
 
 If you look at the `npm start` script in the `package.json` file,

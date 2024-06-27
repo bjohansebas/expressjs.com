@@ -1,11 +1,6 @@
 ---
-layout: page
-title: Express database integration
-menu: guide
-lang: en
-redirect_from: "/guide/database-integration.html"
+title: Database integration
 ---
-# Database integration
 
 Adding the capability to connect databases to Express apps is just a matter of loading an appropriate Node.js driver for the database in your app. This document briefly explains how to add and use some of the most popular Node.js modules for database systems in your Express app:
 
@@ -34,8 +29,8 @@ search on the [npm](https://www.npmjs.com/) site.
 
 ### Installation
 
-```console
-$ npm install cassandra-driver
+```bash
+npm install cassandra-driver
 ```
 
 ### Example
@@ -56,8 +51,8 @@ client.execute('select key from system.local', (err, result) => {
 
 ### Installation
 
-```console
-$ npm install couchbase
+```bash
+npm install couchbase
 ```
 
 ### Example
@@ -93,8 +88,8 @@ bucket.query(query, [13], (err, result) => {
 
 ### Installation
 
-```console
-$ npm install nano
+```bash
+npm install nano
 ```
 
 ### Example
@@ -129,8 +124,8 @@ books.list((err, body) => {
 
 ### Installation
 
-```console
-$ npm install level levelup leveldown
+```bash
+npm install level levelup leveldown
 ```
 
 ### Example
@@ -156,8 +151,8 @@ db.put('name', 'LevelUP', (err) => {
 
 ### Installation
 
-```console
-$ npm install mysql
+```bash
+npm install mysql
 ```
 
 ### Example
@@ -188,8 +183,8 @@ connection.end()
 
 ### Installation
 
-```console
-$ npm install mongodb
+```bash
+npm install mongodb
 ```
 
 ### Example (v2.*)
@@ -235,8 +230,8 @@ If you want an object model driver for MongoDB, look at [Mongoose](https://githu
 
 ### Installation
 
-```console
-$ npm install neo4j-driver
+```bash
+npm install neo4j-driver
 ```
 
 ### Example
@@ -266,8 +261,8 @@ session.readTransaction((tx) => {
 
  NOTE: [See installation prerequisites](https://github.com/oracle/node-oracledb#-installation).
 
-```console
-$ npm install oracledb
+```bash
+npm install oracledb
 ```
 
 ### Example
@@ -310,8 +305,8 @@ getEmployee(101)
 
 ### Installation
 
-```console
-$ npm install pg-promise
+```bash
+npm install pg-promise
 ```
 
 ### Example
@@ -335,8 +330,8 @@ db.one('SELECT $1 AS value', 123)
 
 ### Installation
 
-```console
-$ npm install redis
+```bash
+npm install redis
 ```
 
 ### Example
@@ -370,8 +365,8 @@ client.hkeys('hash key', (err, replies) => {
 
 ### Installation
 
-```console
-$ npm install tedious
+```bash
+npm install tedious
 ```
 
 ### Example
@@ -431,8 +426,8 @@ function executeStatement () {
 
 ### Installation
 
-```console
-$ npm install sqlite3
+```bash
+npm install sqlite3
 ```
 
 ### Example
@@ -465,8 +460,8 @@ db.close()
 
 ### Installation
 
-```console
-$ npm install elasticsearch
+```bash
+npm install elasticsearch
 ```
 
 ### Example

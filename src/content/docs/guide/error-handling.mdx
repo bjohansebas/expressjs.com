@@ -1,11 +1,6 @@
 ---
-layout: page
-title: Express error handling
-menu: guide
-lang: en
-redirect_from: "/guide/error-handling.html"
+title: Error handling
 ---
-# Error Handling
 
 _Error Handling_ refers to how Express catches and processes errors that
 occur both synchronously and asynchronously. Express comes with a default error
@@ -189,7 +184,7 @@ function errorHandler (err, req, res, next) {
 Note that the default error handler can get triggered if you call `next()` with an error
 in your code more than once, even if custom error handling middleware is in place.
 
-Other error handling middleware can be found at [Express middleware](/{{ page.lang }}/resources/middleware.html).
+Other error handling middleware can be found at [Express middleware](/resources/middleware.html).
 
 ## Writing error handlers
 

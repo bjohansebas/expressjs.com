@@ -1,11 +1,6 @@
 ---
-layout: page
-title: Migrating to Express 5
-menu: guide
-lang: en
-redirect_from: "/guide/migrating-5.html"
+title: Moving to Express 5
 ---
-# Moving to Express 5
 
 <h2 id="overview">Overview</h2>
 
@@ -13,13 +8,13 @@ Express 5.0 is still in the beta release stage, but here is a preview of the cha
 
 To install the latest beta and to preview Express 5, enter the following command in your application root directory:
 
-```console
-$ npm install "express@>=5.0.0-beta.1" --save
+```bash
+npm install "express@>=5.0.0-beta.1" --save
 ```
 
 You can then run your automated tests to see what fails, and fix problems according to the updates listed below. After addressing test failures, run your app to see what errors occur. You'll find out right away if the app uses any methods or properties that are not supported.
 
-<h2 id="changes">Changes in Express 5</h2>
+## Changes in Express 5
 
 **Removed methods and properties**
 
@@ -52,21 +47,21 @@ You can then run your automated tests to see what fails, and fix problems accord
   <li><a href="#res.render">res.render()</a></li>
 </ul>
 
-<h3>Removed methods and properties</h3>
+### Removed methods and properties
 
 If you use any of these methods or properties in your app, it will crash. So, you'll need to change your app after you update to version 5.
 
-<h4 id="app.del">app.del()</h4>
+#### app.del()
 
 Express 5 no longer supports the `app.del()` function. If you use this function, an error is thrown. For registering HTTP DELETE routes, use the `app.delete()` function instead.
 
 Initially, `del` was used instead of `delete`, because `delete` is a reserved keyword in JavaScript. However, as of ECMAScript 6, `delete` and other reserved keywords can legally be used as property names.
 
-<h4 id="app.param">app.param(fn)</h4>
+#### app.param(fn)
 
 The `app.param(fn)` signature was used for modifying the behavior of the `app.param(name, fn)` function. It has been deprecated since v4.11.0, and Express 5 no longer supports it at all.
 
-<h4 id="plural">Pluralized method names</h4>
+#### Pluralized method names
 
 The following method names have been pluralized. In Express 4, using the old methods resulted in a deprecation warning. Express 5 no longer supports them at all:
 
@@ -76,13 +71,13 @@ The following method names have been pluralized. In Express 4, using the old met
 
 `req.acceptsLanguage()` is replaced by `req.acceptsLanguages()`.
 
-<h4 id="leading">Leading colon (:) in the name for app.param(name, fn)</h4>
+#### Leading colon (:) in the name for app.param(name, fn)
 
 A leading colon character (:) in the name for the `app.param(name, fn)` function is a remnant of Express 3, and for the sake of backwards compatibility, Express 4 supported it with a deprecation notice. Express 5 will silently ignore it and use the name parameter without prefixing it with a colon.
 
-This should not affect your code if you follow the Express 4 documentation of [app.param](/{{ page.lang }}/4x/api.html#app.param), as it makes no mention of the leading colon.
+This should not affect your code if you follow the Express 4 documentation of [app.param](/4x/api.html#app.param), as it makes no mention of the leading colon.
 
-<h4 id="req.param">req.param(name)</h4>
+#### req.param(name)
 
 This potentially confusing and dangerous method of retrieving form data has been removed. You will now need to specifically look for the submitted parameter name in the `req.params`, `req.body`, or `req.query` object.
 
@@ -107,7 +102,7 @@ If you need to send a number by using the `res.send()` function, quote the numbe
 
 The `res.sendfile()` function has been replaced by a camel-cased version `res.sendFile()` in Express 5.
 
-<h3>Changed</h3>
+### Changed
 
 <h4 id="path-syntax">Path route matching syntax</h4>
 
@@ -141,7 +136,7 @@ In Express 4, the `req.host` function incorrectly stripped off the port number i
 
 The `req.query` property is no longer a writable property and is instead a getter. The default query parser has been changed from "extended" to "simple".
 
-<h3>Improvements</h3>
+### Improvements
 
 <h4 id="res.render">res.render()</h4>
 

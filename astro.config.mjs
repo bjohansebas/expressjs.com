@@ -41,6 +41,45 @@ export default defineConfig({
         link: 'starter/faq'
       }
       ]
+    }, {
+      label: 'Guide',
+      items: [{
+        label: 'Routing',
+        link: '/guide/routing'
+      }, {
+        label: 'Writing middleware',
+        link: '/guide/writing-middleware'
+      }, {
+        label: 'Using middleware',
+        link: '/guide/using-middleware'
+      },
+      {
+        label: 'Overriding the Express API',
+        link: '/guide/overriding-express-api'
+      }, {
+        label: 'Using template engines',
+        link: 'guide/using-template-engines'
+      }, {
+        label: 'Error Handling',
+        link: 'guide/error-handling'
+      }, {
+        label: 'Debugging',
+        link: 'guide/debugging'
+      }, {
+        label: 'Express behind proxies',
+        link: 'guide/behind-proxies'
+      }, {
+        label: 'Moving to Express 4',
+        link: 'guide/migrating-4'
+      }, {
+        label: 'Moving to Express 5',
+        link: 'guide/migrating-5'
+      }, {
+        label: 'Database integration',
+        link: 'guide/database-integration'
+      }
+      ]
+
     }],
     social: {
       github: 'https://github.com/expressjs/express'
