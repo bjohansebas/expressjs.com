@@ -2,15 +2,15 @@
 title: Moving to Express 5
 ---
 
+import PackageManagerCommand from "@/components/PackageManagerCommand.astro";
+
 :::caution
 Express 5.0 is still in the beta release stage, but here is a preview of the changes that will be in the release and how to migrate your Express 4 app to Express 5.
 :::
 
 To install the latest beta and to preview Express 5, enter the following command in your application root directory:
 
-```bash
-npm install "express@>=5.0.0-beta.1" --save
-```
+<PackageManagerCommand npm="install 'express@>=5.0.0-beta.1' --save" pnpm="add 'express@>=5.0.0-beta.1'" bun="add 'express@>=5.0.0-beta.1'"/>
 
 You can then run your automated tests to see what fails, and fix problems according to the updates listed below. After addressing test failures, run your app to see what errors occur. You'll find out right away if the app uses any methods or properties that are not supported.
 

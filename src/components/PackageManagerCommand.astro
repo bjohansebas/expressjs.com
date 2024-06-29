@@ -4,17 +4,31 @@ import { TabItem, Tabs } from "@astrojs/starlight/components";
 ---
 
 <Tabs syncKey="command">
-  <TabItem label="npm" icon="seti:npm">
-    <Code
-      code={`${Astro.props.npx ? "npx" : "npm"} ${Astro.props.npx ?? Astro.props.npm ?? Astro.props.command}`}
-      lang="bash"
-    />
-  </TabItem>
   {
-    Astro.props.pnpm != null ? (
+    Astro.props.node != null ? (
+      <TabItem label="node" icon="node">
+        <Code
+          code={`node ${Astro.props.node ?? Astro.props.command}`}
+          lang="bash"
+        />
+      </TabItem>
+    ) : null
+  }
+  {
+    Astro.props.npm != null || Astro.props.npx != null ? (
+      <TabItem label="npm" icon="seti:npm">
+        <Code
+          code={`${Astro.props.npx ? "npx" : "npm"} ${Astro.props.npx ?? Astro.props.npm ?? Astro.props.command}`}
+          lang="bash"
+        />
+      </TabItem>
+    ) : null
+  }
+  {
+    Astro.props.pnpm != null || Astro.props.pnpx ? (
       <TabItem label="pnpm" icon="pnpm">
         <Code
-          code={`pnpm ${Astro.props.pnpm ?? Astro.props.command}`}
+          code={`${Astro.props.pnpx ? "pnpx" : "pnpm"} ${Astro.props.pnpx ?? Astro.props.pnpm ?? Astro.props.command}`}
           lang="bash"
         />
       </TabItem>

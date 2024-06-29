@@ -1,6 +1,8 @@
 ---
 title: Security best practices for Express in production
 ---
+import PackageManagerCommand from "@/components/PackageManagerCommand.astro";
+
 
 The term _"production"_ refers to the stage in the software lifecycle when an application or API is generally available to its end-users or consumers. In contrast, in the _"development"_ stage, you're still actively writing and testing code, and the application is not open to external access. The corresponding system environments are known as _production_ and _development_ environments, respectively.
 
@@ -86,9 +88,7 @@ Helmet includes several other middleware functions which you can read about [at 
 
 Install Helmet like any other module:
 
-```console
-$ npm install --save helmet
-```
+<PackageManagerCommand npm="install --save helmet" pnpm="add helmet" bun="add helmet"/>
 
 Then to use it in your code:
 
@@ -224,23 +224,18 @@ Using npm to manage your application's dependencies is powerful and convenient. 
 
 Since npm@6, npm automatically reviews every install request. Also, you can use `npm audit` to analyze your dependency tree.
 
-```console
-$ npm audit
-```
+<PackageManagerCommand npm="audit"/>
 
 If you want to stay more secure, consider [Snyk](https://snyk.io/).
 
 Snyk offers both a [command-line tool](https://www.npmjs.com/package/snyk) and a [Github integration](https://snyk.io/docs/github) that checks your application against [Snyk's open source vulnerability database](https://snyk.io/vuln/) for any known vulnerabilities in your dependencies. Install the CLI as follows:
 
-```console
-$ npm install -g snyk
-$ cd your-app
-```
+<PackageManagerCommand npm="install -g snyk" pnpm="install -g snyk" bun="install -g snyk"/>
 
 Use this command to test your application for vulnerabilities:
 
-```console
-$ snyk test
+```bash
+snyk test
 ```
 
 ### Avoid other known vulnerabilities

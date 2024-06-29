@@ -298,14 +298,14 @@ You can easily install StrongLoop Process Manager as a systemd service. After yo
 
 To install StrongLoop PM as a systemd service:
 
-```console
-$ sudo sl-pm-install --systemd
+```bash
+sudo sl-pm-install --systemd
 ```
 
 Then start the service with:
 
-```console
-$ sudo /usr/bin/systemctl start strong-pm
+```bash
+sudo /usr/bin/systemctl start strong-pm
 ```
 
 For more information, see [Setting up a production host (StrongLoop documentation)](https://docs.strongloop.com/display/SLC/Setting+up+a+production+host#Settingupaproductionhost-RHEL7+,Ubuntu15.04or15.10).
@@ -348,7 +348,9 @@ respawn
 respawn limit 10 10
 ```
 
-NOTE: This script requires Upstart 1.4 or newer, supported on Ubuntu 12.04-14.10.
+:::note
+This script requires Upstart 1.4 or newer, supported on Ubuntu 12.04-14.10.
+:::
 
 Since the job is configured to run when the system starts, your app will be started along with the operating system, and automatically restarted if the app crashes or the system goes down.
 
@@ -366,17 +368,19 @@ You can easily install StrongLoop Process Manager as an Upstart service. After y
 
 To install StrongLoop PM as an Upstart 1.4 service:
 
-```console
-$ sudo sl-pm-install
+```bash
+sudo sl-pm-install
 ```
 
 Then run the service with:
 
-```console
-$ sudo /sbin/initctl start strong-pm
+```bash
+sudo /sbin/initctl start strong-pm
 ```
 
-NOTE: On systems that don't support Upstart 1.4, the commands are slightly different. See [Setting up a production host (StrongLoop documentation)](https://docs.strongloop.com/display/SLC/Setting+up+a+production+host#Settingupaproductionhost-RHELLinux5and6,Ubuntu10.04-.10,11.04-.10) for more information.
+:::note
+On systems that don't support Upstart 1.4, the commands are slightly different. See [Setting up a production host (StrongLoop documentation)](https://docs.strongloop.com/display/SLC/Setting+up+a+production+host#Settingupaproductionhost-RHELLinux5and6,Ubuntu10.04-.10,11.04-.10) for more information.
+:::
 
 ### Run your app in a cluster
 
@@ -384,7 +388,9 @@ In a multi-core system, you can increase the performance of a Node app by many t
 
 ![Balancing between application instances using the cluster API](/images/clustering.png)
 
-IMPORTANT: Since the app instances run as separate processes, they do not share the same memory space. That is, objects are local to each instance of the app. Therefore, you cannot maintain state in the application code. However, you can use an in-memory datastore like [Redis](http://redis.io/) to store session-related data and state. This caveat applies to essentially all forms of horizontal scaling, whether clustering with multiple processes or multiple physical servers.
+:::note
+Since the app instances run as separate processes, they do not share the same memory space. That is, objects are local to each instance of the app. Therefore, you cannot maintain state in the application code. However, you can use an in-memory datastore like [Redis](http://redis.io/) to store session-related data and state. This caveat applies to essentially all forms of horizontal scaling, whether clustering with multiple processes or multiple physical servers.
+:::
 
 In clustered apps, worker processes can crash individually without affecting the rest of the processes. Apart from performance advantages, failure isolation is another reason to run a cluster of app processes. Whenever a worker process crashes, always make sure to log the event and spawn a new process using cluster.fork().
 
@@ -400,8 +406,8 @@ When StrongLoop Process Manager (PM) runs an application, it automatically runs 
 
 For example, assuming you've deployed your app to prod.foo.com and StrongLoop PM is listening on port 8701 (the default), then to set the cluster size to eight using slc:
 
-```console
-$ slc ctl -C http://prod.foo.com:8701 set-size my-app 8
+```bash
+slc ctl -C http://prod.foo.com:8701 set-size my-app 8
 ```
 
 For more information on clustering with StrongLoop PM, see [Clustering](https://docs.strongloop.com/display/SLC/Clustering) in StrongLoop documentation.
@@ -414,22 +420,22 @@ When running an application with PM2, you can enable **cluster mode** to run it 
 
 To enable cluster mode, start your application like so:
 
-```console
+```bash
 # Start 4 worker processes
-$ pm2 start npm --name my-app -i 4 -- start
+pm2 start npm --name my-app -i 4 -- start
 # Auto-detect number of available CPUs and start that many worker processes
-$ pm2 start npm --name my-app -i max -- start
+pm2 start npm --name my-app -i max -- start
 ```
 
 This can also be configured within a PM2 process file (`ecosystem.config.js` or similar) by setting `exec_mode` to `cluster` and `instances` to the number of workers to start.
 
 Once running, the application can be scaled like so:
 
-```console
+```bash
 # Add 3 more workers
-$ pm2 scale my-app +3
-# Scale to a specific number of workers
-$ pm2 scale my-app 2
+pm2 scale my-app +3
+# Scale to a specific number of workers 
+pm2 scale my-app 2
 ```
 
 For more information on clustering with PM2, see [Cluster Mode](https://pm2.keymetrics.io/docs/usage/cluster-mode/) in the PM2 documentation.

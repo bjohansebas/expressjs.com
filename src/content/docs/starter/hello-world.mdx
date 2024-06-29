@@ -2,6 +2,8 @@
 title: Hello world example
 ---
 
+import PackageManagerCommand from "@/components/PackageManagerCommand.astro";
+
 :::note
   Embedded below is essentially the simplest Express app you can create. It is a
   single file app &mdash; _not_ what you'd get if you use the [Express
@@ -48,8 +50,6 @@ In the `myapp` directory, create a file named `app.js` and copy the code from th
 
 Run the app with the following command:
 
-```bash
-node app.js
-```
+<PackageManagerCommand node="app.js" bun="app.js"/>
 
 Then, load `http://localhost:3000/` in a browser to see the output.
