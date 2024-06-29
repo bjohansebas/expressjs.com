@@ -1,31 +1,26 @@
 ---
-layout: page
 title: Express 4.x changelog
-menu: changelog
-lang: en
-redirect_from: "/changelog/4x.html"
 ---
 
-# Release Change Log
 
-## 4.19.2 - Release date: 2024-03-25
-{: id="4.19.2"}
+## 4.19.2 (2024-03-25)
+
 
 * Improved fix for open redirect allow list bypass
 
-## 4.19.1 - Release date: 2024-03-20
-{: id="4.19.1"}
+## 4.19.1 (2024-03-20)
+
 
 * Allow passing non-strings to res.location with new encoding handling checks
 
-## 4.19.0 - Release date: 2024-03-20
-{: id="4.19.0"}
+## 4.19.0 (2024-03-20)
+
 
 * Prevent open redirect allow list bypass due to encodeurl
 * deps: cookie@0.6.0
 
-## 4.18.3 - Release date: 2024-02-29
-{: id="4.18.3"}
+## 4.18.3 (2024-02-29)
+
 
 The 4.18.3 patch release includes the following bug fix:
 
@@ -37,8 +32,8 @@ The 4.18.3 patch release includes the following bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4183--2024-02-26)
 
-## 4.18.2 - Release date: 2022-10-08
-{: id="4.18.2"}
+## 4.18.2 (2022-10-08)
+
 
 The 4.18.2 patch release includes the following bug fix:
 
@@ -50,8 +45,8 @@ The 4.18.2 patch release includes the following bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4182--2022-10-08)
 
-## 4.18.1 - Release date: 2022-04-29
-{: id="4.18.1"}
+## 4.18.1 (2022-04-29)
+
 
 The 4.18.1 patch release includes the following bug fix:
 
@@ -63,26 +58,26 @@ The 4.18.1 patch release includes the following bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4181--2022-04-29).
 
-## 4.18.0 - Release date: 2022-04-25
-{: id="4.18.0"}
+## 4.18.0 (2022-04-25)
+
 
 The 4.18.0 minor release includes bug fixes and some new features, including:
 
 <ul>
   <li markdown="1" class="changelog-item">
-  The [`app.get()` method](/{{ page.lang }}/4x/api.html#app.get) and the [`app.set()` method](/{{ page.lang }}/4x/api.html#app.set) now ignores properties directly on `Object.prototype` when getting a setting value.
+  The [`app.get()` method](/4x/api.html#app.get) and the [`app.set()` method](/4x/api.html#app.set) now ignores properties directly on `Object.prototype` when getting a setting value.
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.cookie()` method](/{{ page.lang }}/4x/api.html#res.cookie) now accepts a "priority" option to set the Priority attribute on the Set-Cookie response header.
+  The [`res.cookie()` method](/4x/api.html#res.cookie) now accepts a "priority" option to set the Priority attribute on the Set-Cookie response header.
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.cookie()` method](/{{ page.lang }}/4x/api.html#res.cookie) now rejects an Invalid Date object provided as the "expires" option.
+  The [`res.cookie()` method](/4x/api.html#res.cookie) now rejects an Invalid Date object provided as the "expires" option.
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.cookie()` method](/{{ page.lang }}/4x/api.html#res.cookie) now works when `null` or `undefined` is explicitly provided as the "maxAge" argument.
+  The [`res.cookie()` method](/4x/api.html#res.cookie) now works when `null` or `undefined` is explicitly provided as the "maxAge" argument.
   </li>
 
   <li markdown="1" class="changelog-item">
@@ -90,19 +85,19 @@ The 4.18.0 minor release includes bug fixes and some new features, including:
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.download()` method](/{{ page.lang }}/4x/api.html#res.download) now accepts a "root" option to match [`res.sendFile()`](/{{ page.lang }}/4x/api.html#res.sendFile).
+  The [`res.download()` method](/4x/api.html#res.download) now accepts a "root" option to match [`res.sendFile()`](/4x/api.html#res.sendFile).
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.download()` method](/{{ page.lang }}/4x/api.html#res.download) can be supplied with an `options` object without providing a `filename` argument, simplifying calls when the default `filename` is desired.
+  The [`res.download()` method](/4x/api.html#res.download) can be supplied with an `options` object without providing a `filename` argument, simplifying calls when the default `filename` is desired.
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.format()` method](/{{ page.lang }}/4x/api.html#res.format) now invokes the provided "default" handler with the same arguments as the type handlers (`req`, `res`, and `next`).
+  The [`res.format()` method](/4x/api.html#res.format) now invokes the provided "default" handler with the same arguments as the type handlers (`req`, `res`, and `next`).
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.send()` method](/{{ page.lang }}/4x/api.html#res.send) will not attempt to send a response body when the response code is set to 205.
+  The [`res.send()` method](/4x/api.html#res.send) will not attempt to send a response body when the response code is set to 205.
   </li>
 
   <li markdown="1" class="changelog-item">
@@ -116,8 +111,8 @@ The 4.18.0 minor release includes bug fixes and some new features, including:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4180--2022-04-25).
 
-## 4.17.3 - Release date: 2022-02-16
-{: id="4.17.3"}
+## 4.17.3 (2022-02-16)
+
 
 The 4.17.3 patch release includes one bug fix:
 
@@ -129,8 +124,8 @@ The 4.17.3 patch release includes one bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4173--2022-02-16).
 
-## 4.17.2 - Release date: 2021-12-16
-{: id="4.17.2"}
+## 4.17.2 (2021-12-16)
+
 
 The 4.17.2 patch release includes the following bug fixes:
 
@@ -159,8 +154,8 @@ The 4.17.2 patch release includes the following bug fixes:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4172--2021-12-16).
 
-## 4.17.1 - Release date: 2019-05-25
-{: id="4.17.1"}
+## 4.17.1 (2019-05-25)
+
 
 The 4.17.1 patch release includes one bug fix:
 
@@ -172,8 +167,8 @@ The 4.17.1 patch release includes one bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4171--2019-05-25).
 
-## 4.17.0 - Release date: 2019-05-16
-{: id="4.17.0"}
+## 4.17.0 (2019-05-16)
+
 
 The 4.17.0 minor release includes bug fixes and some new features, including:
 
@@ -205,8 +200,8 @@ The 4.17.0 minor release includes bug fixes and some new features, including:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4170--2019-05-16).
 
-## 4.16.4 - Release date: 2018-10-10
-{: id="4.16.4"}
+## 4.16.4 (2018-10-10)
+
 
 The 4.16.4 patch release includes various bug fixes:
 
@@ -218,8 +213,8 @@ The 4.16.4 patch release includes various bug fixes:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4164--2018-10-10).
 
-## 4.16.3 - Release date: 2018-03-12
-{: id="4.16.3"}
+## 4.16.3 (2018-03-12)
+
 
 The 4.16.3 patch release includes various bug fixes:
 
@@ -239,8 +234,8 @@ The 4.16.3 patch release includes various bug fixes:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4163--2018-03-12).
 
-## 4.16.2 - Release date: 2017-10-09
-{: id="4.16.2"}
+## 4.16.2 (2017-10-09)
+
 
 The 4.16.2 patch release includes a regression bug fix:
 
@@ -252,8 +247,8 @@ The 4.16.2 patch release includes a regression bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4162--2017-10-09).
 
-## 4.16.1 - Release date: 2017-09-29
-{: id="4.16.1"}
+## 4.16.1 (2017-09-29)
+
 
 The 4.16.1 patch release includes a regression bug fix:
 
@@ -265,8 +260,8 @@ The 4.16.1 patch release includes a regression bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4161--2017-09-29).
 
-## 4.16.0 - Release date: 2017-09-28
-{: id="4.16.0"}
+## 4.16.0 (2017-09-28)
+
 
 The 4.16.0 minor release includes security updates, bug fixes, performance enhancements, and some new features, including:
 
@@ -292,7 +287,7 @@ The 4.16.0 minor release includes security updates, bug fixes, performance enhan
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.download()` method](/{{ page.lang }}/4x/api.html#res.download) now accepts an optional `options` object.
+  The [`res.download()` method](/4x/api.html#res.download) now accepts an optional `options` object.
   </li>
 
   <li markdown="1" class="changelog-item">
@@ -300,7 +295,7 @@ The 4.16.0 minor release includes security updates, bug fixes, performance enhan
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`express.static()` middleware](/{{ page.lang }}/4x/api.html#express.static) and [`res.sendFile()` method](/{{ page.lang }}/4x/api.html#res.sendFile) now support setting the `immutable` directive on the `Cache-Control` header. Setting this header with an appropriate `maxAge` will prevent supporting web browsers from sending any request to the server when the file is still in their cache.
+  The [`express.static()` middleware](/4x/api.html#express.static) and [`res.sendFile()` method](/4x/api.html#res.sendFile) now support setting the `immutable` directive on the `Cache-Control` header. Setting this header with an appropriate `maxAge` will prevent supporting web browsers from sending any request to the server when the file is still in their cache.
   </li>
 
   <li markdown="1" class="changelog-item">
@@ -310,8 +305,8 @@ The 4.16.0 minor release includes security updates, bug fixes, performance enhan
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4160--2017-09-28).
 
-## 4.15.5 - Release date: 2017-09-24
-{: id="4.15.5"}
+## 4.15.5 (2017-09-24)
+
 
 The 4.15.5 patch release includes security updates, some minor performance enhancements, and a bug fix:
 
@@ -331,8 +326,8 @@ The 4.15.5 patch release includes security updates, some minor performance enhan
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4155--2017-09-24).
 
-## 4.15.4 - Release date: 2017-08-06
-{: id="4.15.4"}
+## 4.15.4 (2017-08-06)
+
 
 The 4.15.4 patch release includes some minor bug fixes:
 
@@ -344,8 +339,8 @@ The 4.15.4 patch release includes some minor bug fixes:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4154--2017-08-06).
 
-## 4.15.3 - Release date: 2017-05-16
-{: id="4.15.3"}
+## 4.15.3 (2017-05-16)
+
 
 The 4.15.3 patch release includes a security update and some minor bug fixes:
 
@@ -365,8 +360,8 @@ The 4.15.3 patch release includes a security update and some minor bug fixes:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4153--2017-05-16).
 
-## 4.15.2 - Release date: 2017-03-06
-{: id="4.15.2"}
+## 4.15.2 (2017-03-06)
+
 
 The 4.15.2 patch release includes a minor bug fix:
 
@@ -378,21 +373,21 @@ The 4.15.2 patch release includes a minor bug fix:
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4152--2017-03-06).
 
-## 4.15.1 - Release date: 2017-03-05
-{: id="4.15.1"}
+## 4.15.1 (2017-03-05)
+
 
 The 4.15.1 patch release includes a minor bug fix:
 
 <ul>
   <li markdown="1" class="changelog-item">
-  Fix compatibility issue when using the datejs 1.x library where the [`express.static()` middleware](/{{ page.lang }}/4x/api.html#express.static) and [`res.sendFile()` method](/{{ page.lang }}/4x/api.html#res.sendFile) would incorrectly respond with 412 Precondition Failed.
+  Fix compatibility issue when using the datejs 1.x library where the [`express.static()` middleware](/4x/api.html#express.static) and [`res.sendFile()` method](/4x/api.html#res.sendFile) would incorrectly respond with 412 Precondition Failed.
   </li>
 </ul>
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4151--2017-03-05).
 
-## 4.15.0 - Release date: 2017-03-01
-{: id="4.15.0"}
+## 4.15.0 (2017-03-01)
+
 
 The 4.15.0 minor release includes bug fixes, performance improvements, and other minor feature additions, including:
 
@@ -402,7 +397,7 @@ The 4.15.0 minor release includes bug fixes, performance improvements, and other
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`express.static()` middleware](/{{ page.lang }}/4x/api.html#express.static) and [`res.sendFile()` method](/{{ page.lang }}/4x/api.html#res.sendFile) now support the `If-Match` and `If-Unmodified-Since` request headers.
+  The [`express.static()` middleware](/4x/api.html#express.static) and [`res.sendFile()` method](/4x/api.html#res.sendFile) now support the `If-Match` and `If-Unmodified-Since` request headers.
   </li>
 
   <li markdown="1" class="changelog-item">
@@ -416,8 +411,8 @@ The 4.15.0 minor release includes bug fixes, performance improvements, and other
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4150--2017-03-01).
 
-## 4.14.1 - Release date: 2017-01-28
-{: id="4.14.1"}
+## 4.14.1 (2017-01-28)
+
 
 The 4.14.1 patch release includes bug fixes and performance improvements, including:
 
@@ -429,8 +424,8 @@ The 4.14.1 patch release includes bug fixes and performance improvements, includ
 
 For a complete list of changes in this release, see [History.md](https://github.com/expressjs/express/blob/master/History.md#4141--2017-01-28).
 
-## 4.14.0 - Release date: 2016-06-16
-{: id="4.14.0"}
+## 4.14.0 (2016-06-16)
+
 
 The 4.14.0 minor release includes bug fixes, security update, performance improvements, and other minor feature additions, including:
 
@@ -444,7 +439,7 @@ The 4.14.0 minor release includes bug fixes, security update, performance improv
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.sendFile()` method](/{{ page.lang }}/4x/api.html#res.sendFile) now accepts two new options: `acceptRanges` and `cacheControl`.
+  The [`res.sendFile()` method](/4x/api.html#res.sendFile) now accepts two new options: `acceptRanges` and `cacheControl`.
 
   - `acceptRanges` (defaut is `true`), enables or disables accepting ranged requests. When disabled, the response does not send the `Accept-Ranges` header and ignores the contents of the `Range` request header.
 
@@ -454,15 +449,15 @@ The 4.14.0 minor release includes bug fixes, security update, performance improv
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`res.location()` method](/{{ page.lang }}/4x/api.html#res.location) and [`res.redirect()` method](/{{ page.lang }}/4x/api.html#res.redirect) will now URL-encode the URL string, if it is not already encoded.
+  The [`res.location()` method](/4x/api.html#res.location) and [`res.redirect()` method](/4x/api.html#res.redirect) will now URL-encode the URL string, if it is not already encoded.
   </li>
 
   <li markdown="1" class="changelog-item">
-  The performance of the [`res.json()` method](/{{ page.lang }}/4x/api.html#res.json) and [`res.jsonp()` method](/{{ page.lang }}/4x/api.html#res.jsonp) have been improved in the common cases.
+  The performance of the [`res.json()` method](/4x/api.html#res.json) and [`res.jsonp()` method](/4x/api.html#res.jsonp) have been improved in the common cases.
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [jshttp/cookie module](https://www.npmjs.com/package/cookie) (in addition to a number of other improvements) has been updated and now the [`res.cookie()` method](/{{ page.lang }}/4x/api.html#res.cookie) supports the `sameSite` option to let you specify the [SameSite cookie attribute](https://tools.ietf.org/html/draft-west-first-party-cookies-07).  NOTE: This attribute has not yet been fully standardized, may change in the future, and many clients may ignore it.
+  The [jshttp/cookie module](https://www.npmjs.com/package/cookie) (in addition to a number of other improvements) has been updated and now the [`res.cookie()` method](/4x/api.html#res.cookie) supports the `sameSite` option to let you specify the [SameSite cookie attribute](https://tools.ietf.org/html/draft-west-first-party-cookies-07).  NOTE: This attribute has not yet been fully standardized, may change in the future, and many clients may ignore it.
 
   The possible value for the `sameSite` option are:
 
@@ -481,7 +476,7 @@ The 4.14.0 minor release includes bug fixes, security update, performance improv
   </li>
 
   <li markdown="1" class="changelog-item">
-  The [`req.range()` method](/{{ page.lang }}/4x/api.html#req.range) options object now supports a `combine` option (`false` by default), which when `true`, combines overlapping and adjacent ranges and returns them as if they were specified that way in the header.
+  The [`req.range()` method](/4x/api.html#req.range) options object now supports a `combine` option (`false` by default), which when `true`, combines overlapping and adjacent ranges and returns them as if they were specified that way in the header.
   </li>
 </ul>
 
