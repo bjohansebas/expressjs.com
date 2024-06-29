@@ -80,7 +80,44 @@ export default defineConfig({
       }
       ]
 
-    }],
+    },
+    {
+      label: 'API reference',
+      items: [
+        { label: '5.x', link: '5x/api', badge: { text: 'beta', variant: 'caution' } },
+        {
+          label: '4.x',
+          link: '4x/api'
+        }, {
+          label: '3.x',
+          link: '3x/api',
+          badge: { text: 'deprecated', variant: 'danger' }
+        }
+      ]
+    },
+    {
+      label: 'Advanced topics',
+      items: [
+        { label: 'Building template engines', link: 'advanced/developing-template-engines' },
+        { label: 'Security updates', link: 'advanced/security-updates' },
+        { label: 'Security best practices', link: 'advanced/best-practice-security' },
+        { label: 'Performance best practices', link: 'advanced/best-practice-performance' },
+        { label: 'Health checks & shutdown', link: 'advanced/healthcheck-graceful-shutdown' }
+      ]
+    }, {
+      label: 'Resources',
+      items: [{
+        label: 'Community', link: 'resources/community'
+      },
+      { label: 'Glossary', link: 'resources/glossary' },
+      { label: 'Middleware', link: 'resources/middleware' },
+      { label: 'Utility modules', link: 'resources/utils' },
+      { label: 'Contributing to Express', link: 'resources/contributing' },
+      { label: 'Release Change Log', link: 'changelog/4x' }
+      ]
+    }
+
+    ],
     social: {
       github: 'https://github.com/expressjs/express'
     },
