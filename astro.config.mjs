@@ -10,13 +10,6 @@ export default defineConfig({
   compressHTML: true,
   integrations: [starlight({
     title: 'Express',
-    defaultLocale: 'root',
-    locales: {
-      root: {
-        label: 'English',
-        lang: 'en'
-      }
-    },
     sidebar: [{
       label: 'Getting Started',
       items: [{
@@ -123,6 +116,13 @@ export default defineConfig({
     },
     components: {
       Hero: './src/components/starlight/Hero.astro'
+    },
+    tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
+    favicon: '/favicon.ico',
+    logo: {
+      light: './src/assets/svg/logo-light.svg',
+      dark: './src/assets/svg/logo-dark.svg',
+      replacesTitle: true
     }
   })],
   markdown: {
