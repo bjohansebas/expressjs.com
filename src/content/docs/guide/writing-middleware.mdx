@@ -76,14 +76,14 @@ const myLogger = function (req, res, next) {
 };
 ```
 
-<div class="doc-box doc-notice" markdown="1">
+:::caution
   Notice the call above to `next()`. Calling this function invokes the next
   middleware function in the app. The `next()` function is not a part of the
   Node.js or Express API, but is the third argument that is passed to the
   middleware function. The `next()` function could be named anything, but by
   convention it is always named "next". To avoid confusion, always use this
   convention.
-</div>
+:::
 
 To load the middleware function, call `app.use()`, specifying the middleware function.
 For example, the following code loads the `myLogger` middleware function before the route to the root path (/).
@@ -192,14 +192,14 @@ app.use((err, req, res, next) => {
 app.listen(3000);
 ```
 
-<div class="doc-box doc-notice" markdown="1">
+:::caution
   Note how `next()` is called after `await cookieValidator(req.cookies)`. This
   ensures that if `cookieValidator` resolves, the next middleware in the stack
   will get called. If you pass anything to the `next()` function (except the
   string `'route'` or `'router'`), Express regards the current request as being
   an error and will skip any remaining non-error handling routing and middleware
   functions.
-</div>
+:::
 
 Because you have access to the request object, the response object, the next middleware function in the stack, and the whole Node.js API, the possibilities with middleware functions are endless.
 

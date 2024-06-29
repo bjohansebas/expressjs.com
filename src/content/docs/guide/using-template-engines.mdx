@@ -15,12 +15,12 @@ See [Template Engines (Express wiki)](https://github.com/expressjs/express/wiki#
 for a list of template engines you can use with Express.
 See also [Comparing JavaScript Templating Engines: Jade, Mustache, Dust and More](https://strongloop.com/strongblog/compare-javascript-templates-jade-mustache-dust/).
 
-<div class="doc-box doc-notice" markdown="1">
+:::caution
   **Note**: Jade has been renamed to [Pug](https://www.npmjs.com/package/pug).
   You can continue to use Jade in your app, and it will work just fine. However
   if you want the latest updates to the template engine, you must replace Jade
   with Pug in your app.
-</div>
+:::
 
 To render template files, set the following [application setting properties](/4x/api.html#app.set), set in `app.js` in the default app created by the generator:
 
@@ -34,14 +34,13 @@ Then install the corresponding template engine npm package; for example to insta
 npm install pug --save
 ```
 
-<div class="doc-box doc-notice" markdown="1">
+:::caution
 Express-compliant template engines such as Jade and Pug export a function named `__express(filePath, options, callback)`,
 which is called by the `res.render()` function to render the template code.
 
 Some template engines do not follow this convention. The [Consolidate.js](https://www.npmjs.org/package/consolidate)
 library follows this convention by mapping all of the popular Node.js template engines, and therefore works seamlessly within Express.
-
-</div>
+:::
 
 After the view engine is set, you don't have to specify the engine or load the template engine module in your app;
 Express loads the module internally, as shown below (for the above example).

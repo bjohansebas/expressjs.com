@@ -149,10 +149,10 @@ handler, it will be handled by the built-in error handler; the error will be
 written to the client with the stack trace. The stack trace is not included
 in the production environment.
 
-<div class="doc-box doc-info" markdown="1">
+:::note
   Set the environment variable `NODE_ENV` to `production`, to run the app in
   production mode.
-</div>
+:::
 
 When an error is written, the following information is added to the
 response:
@@ -299,9 +299,9 @@ app.get(
 
 In this example, the `getPaidContent` handler will be skipped but any remaining handlers in `app` for `/a_route_behind_paywall` would continue to be executed.
 
-<div class="doc-box doc-info" markdown="1">
+:::note
   Calls to `next()` and `next(err)` indicate that the current handler is
   complete and in what state. `next(err)` will skip all remaining handlers in
   the chain except for those that are set up to handle errors as described
   above.
-</div>
+:::

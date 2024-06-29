@@ -30,10 +30,10 @@ http://localhost:3000/images/bg.png
 http://localhost:3000/hello.html
 ```
 
-<div class="doc-box doc-info">
+:::note
   Express looks up the files relative to the static directory, so the name of
   the static directory is not part of the URL.
-</div>
+:::
 
 To use multiple static assets directories, call the `express.static` middleware function multiple times:
 
@@ -44,11 +44,11 @@ app.use(express.static("files"));
 
 Express looks up the files in the order in which you set the static directories with the `express.static` middleware function.
 
-<div class="doc-box doc-info" markdown="1">
-  NOTE: For best results, [use a reverse
+:::note
+  For best results, [use a reverse
   proxy](/advanced/best-practice-performance.html#use-a-reverse-proxy) cache to
   improve performance of serving static assets.
-</div>
+:::
 
 To create a virtual path prefix (where the path does not actually exist in the file system) for files that are served by the `express.static` function, [specify a mount path](/4x/api.html#app.use) for the static directory, as shown below:
 

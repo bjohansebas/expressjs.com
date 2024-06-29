@@ -5,12 +5,12 @@ tableOfContents: false
 
 When running an Express app behind a reverse proxy, some of the Express APIs may return different values than expected. In order to adjust for this, the `trust proxy` application setting may be used to expose information provided by the reverse proxy in the Express APIs. The most common issue is express APIs that expose the client's IP address may instead show an internal IP address of the reverse proxy.
 
-<div class="doc-box doc-info" markdown="1">
+:::note
   When configuring the `trust proxy` setting, it is important to understand the
   exact setup of the reverse proxy. Since this setting will trust values
   provided in the request, it is important that the combination of the setting
   in Express matches how the reverse proxy operates.
-</div>
+:::
 
 The application setting `trust proxy` may be set to one of the values listed in the following table.
 
@@ -24,9 +24,9 @@ If `true`, the client's IP address is understood as the left-most entry in the `
 
 If `false`, the app is understood as directly facing the client and the client's IP address is derived from `req.socket.remoteAddress`. This is the default setting.
 
-<div class="doc-box doc-warn" markdown="1">
+:::danger
 When setting to `true`, it is important to ensure that the last reverse proxy trusted is removing/overwriting all of the following HTTP headers: `X-Forwarded-For`, `X-Forwarded-Host`, and `X-Forwarded-Proto`, otherwise it may be possible for the client to provide any value.
-</div>
+:::
 </td>
     </tr>
     <tr>
@@ -56,9 +56,9 @@ When specified, the IP addresses or the subnets are excluded from the address de
 <td markdown="1">
 Use the address that is at most `n` number of hops away from the Express application. `req.socket.remoteAddress` is the first hop, and the rest are looked for in the `X-Forwarded-For` header from right to left. A value of `0` means that the first untrusted address would be `req.socket.remoteAddress`, i.e. there is no reverse proxy.
 
-<div class="doc-box doc-warn" markdown="1">
+:::danger
 When using this setting, it is important to ensure there are not multiple, different-length paths to the Express application such that the client can be less than the configured number of hops away, otherwise it may be possible for the client to provide any value.
-</div>
+:::
 </td>
     </tr>
     <tr>
