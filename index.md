@@ -5,6 +5,7 @@ menu: home
 lang: en
 redirect_from: "/en/index.html"
 ---
+
 <section id="home-content">
   {% include header/header-{{ page.lang }}.html %}
   <div id="overlay"></div>
@@ -36,10 +37,11 @@ redirect_from: "/en/index.html"
     </div>
 
     <div id="middleware">
-      <h3>Middleware</h3> 
-      Express is a lightweight and flexible routing framework with minimal core features 
+      <h3>Middleware</h3>
+      Express is a lightweight and flexible routing framework with minimal core features
       meant to be augmented through the use of Express <a href="{{ page.lang }}/resources/middleware.html">middleware</a> modules.
     </div>
+
   </div>
 
 </section>

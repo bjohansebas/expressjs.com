@@ -13,8 +13,9 @@ To preview the website locally:
    ```sh
    $ gem install jekyll-redirect-from
    ```
-   
+
 1. Clone this repository by running the following command:
+
    ```sh
    $ git clone https://github.com/expressjs/expressjs.com.git
    ```
@@ -37,7 +38,7 @@ To preview the website locally:
 
 ## Local Setup using Docker
 
->[!TIP]
+> [!TIP]
 > You can run `make help` to obtain detailed information on how to use our make commands.
 
 0. Ensure that you have Docker and Make installed.
@@ -64,9 +65,9 @@ app.listen(3000)
 The result looks like this:
 
 ```js
-const express = require('express')
-const app = express()
-app.listen(3000)
+const express = require("express");
+const app = express();
+app.listen(3000);
 ```
 
 The default GitHub Pages syntax highlighting has been disabled in `_config.yml` to allow highlighting with [prism.js](https://prismjs.com/).
