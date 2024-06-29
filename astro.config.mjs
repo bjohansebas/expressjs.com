@@ -188,6 +188,7 @@ export default defineConfig({
         dark: "./src/assets/svg/logo-dark.svg",
         replacesTitle: true,
       },
+      customCss: ["./src/styles/theme.css"],
     }),
   ],
   markdown: {
