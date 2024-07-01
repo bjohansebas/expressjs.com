@@ -2,4 +2,6 @@
 **/*.mjs
 **/*.json
 _includes/**
-
+**/*.md
+**/*.mdx
+**/*.css
