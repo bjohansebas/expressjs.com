@@ -178,6 +178,7 @@ export default defineConfig({
       },
       components: {
         Hero: "./src/components/starlight/Hero.astro",
+        Head: "./src/components/starlight/Head.astro",
       },
       tableOfContents: {
         minHeadingLevel: 2,
@@ -185,8 +186,8 @@ export default defineConfig({
       },
       favicon: "/favicon.ico",
       logo: {
-        light: "./src/assets/svg/logo-light.svg",
-        dark: "./src/assets/svg/logo-dark.svg",
+        light: "./public/logotype/logotype-light.svg",
+        dark: "./public/logotype/logotype-dark.svg",
         replacesTitle: true,
       },
       customCss: ["./src/styles/theme.css", "./src/styles/heading.css"],
