@@ -10,6 +10,9 @@ export default defineConfig({
   site: "https://expressjs-astro.vercel.app/",
   output: "hybrid",
   compressHTML: true,
+  redirects: {
+    "/en/[...slug]": "/[...slug]",
+  },
   integrations: [
     starlight({
       title: "Express",
@@ -184,7 +187,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    syntaxHighlight: "prism",
+    syntaxHighlight: "shiki",
     rehypePlugins: [rehypeSlug],
     shikiConfig: {
       langs: [
