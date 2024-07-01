@@ -107,14 +107,6 @@ export default defineConfig({
               label: "4.x",
               link: "4x/api",
             },
-            {
-              label: "3.x",
-              link: "3x/api",
-              badge: {
-                text: "deprecated",
-                variant: "danger",
-              },
-            },
           ],
         },
         {
