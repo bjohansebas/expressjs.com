@@ -24,7 +24,7 @@ See also [Comparing JavaScript Templating Engines: Jade, Mustache, Dust and More
   with Pug in your app.
 :::
 
-To render template files, set the following [application setting properties](/4x/api.html#app.set), set in `app.js` in the default app created by the generator:
+To render template files, set the following [application setting properties](/4x/api#appsetname-value), set in `app.js` in the default app created by the generator:
 
 - `views`, the directory where the template files are located. Eg: `app.set('views', './views')`.
   This defaults to the `views` directory in the application root directory.
@@ -73,4 +73,4 @@ When you make a request to the home page, the `index.pug` file will be rendered 
 Note: The view engine cache does not cache the contents of the template's output, only the underlying template itself. The view is still re-rendered with every request even when the cache is on.
 
 To learn more about how template engines work in Express, see:
-["Developing template engines for Express"](/advanced/developing-template-engines.html).
+["Developing template engines for Express"](/advanced/developing-template-engines).

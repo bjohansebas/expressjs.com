@@ -2,7 +2,6 @@
 title: Overriding the Express API
 ---
 
-<div id="page-doc" markdown="1">
 
 The Express API consists of various methods and properties on the request and response objects. These are inherited by prototype. There are two extension points for the Express API:
 
@@ -15,7 +14,7 @@ Altering the global prototypes will affect all loaded Express apps in the same p
 
 You can override the signature and behavior of existing methods with your own, by assigning a custom function.
 
-Following is an example of overriding the behavior of [res.sendStatus](/4x/api.html#res.sendStatus).
+Following is an example of overriding the behavior of [res.sendStatus](/4x/api#ressendstatusstatuscode).
 
 ```js
 app.response.sendStatus = function (statusCode, type, message) {
@@ -74,4 +73,3 @@ Object.setPrototypeOf(
 );
 ```
 
-</div>
