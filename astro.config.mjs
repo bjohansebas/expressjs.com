@@ -1,7 +1,10 @@
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
-import rehypeSlug from "rehype-slug";
 import { bundledLanguages } from "./node_modules/shiki";
+
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
 import vercel from "@astrojs/vercel/serverless";
 
@@ -10,6 +13,9 @@ export default defineConfig({
   site: "https://expressjs-astro.vercel.app/",
   output: "hybrid",
   compressHTML: true,
+  devToolbar: {
+    enabled: false,
+  },
   redirects: {
     "/en/[...slug]": "/[...slug]",
   },
@@ -183,12 +189,21 @@ export default defineConfig({
         dark: "./src/assets/svg/logo-dark.svg",
         replacesTitle: true,
       },
-      customCss: ["./src/styles/theme.css"],
+      customCss: ["./src/styles/theme.css", "./src/styles/heading.css"],
     }),
   ],
   markdown: {
     syntaxHighlight: "shiki",
-    rehypePlugins: [rehypeSlug],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+        },
+      ],
+    ],
     shikiConfig: {
       langs: [
         {
@@ -202,4 +217,9 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: true },
   }),
+  vite: {
+    build: {
+      cssMinify: "lightningcss",
+    },
+  },
 });
