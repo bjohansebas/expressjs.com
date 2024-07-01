@@ -41,10 +41,12 @@ for (const arg of args) {
 
       const newName = file.replace(/\.\w{1,4}/, ".mdx");
 
-      console.log(arg);
-      await mkdir(path.join(OUT_FOLDER, arg));
+      const dirname = arg.split("/");
+      if (!existsSync(path.join(OUT_FOLDER, dirname[dirname.length - 1]))) {
+        await mkdir(path.join(OUT_FOLDER, dirname[dirname.length - 1]));
+      }
 
-      await writeFile(path.join(OUT_FOLDER, arg, newName), newFile);
+      await writeFile(path.join(OUT_FOLDER, dirname[dirname.length - 1], newName), newFile);
     }
   } catch (e) {
     console.log(e);
