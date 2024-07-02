@@ -1,0 +1,67 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+---
+
+<footer>
+  <section>
+    <a
+      href="https://github.com/expressjs/express/blob/master/Code-Of-Conduct.md"
+      >Code of Conduct</a
+    >
+    <a href="https://github.com/expressjs/express/security">Security Policy</a>
+  </section>
+  <section class="social">
+    <a href="https://openjsf.org/">© OpenJS Foundation</a>
+    <div>
+      <a href="https://github.com/expressjs/express">
+        <Icon name="github" />
+      </a>
+    </div>
+  </section>
+</footer>
+
+<style>
+  footer {
+    margin-top: 30px !important;
+    padding: 16px 16px;
+    flex-wrap: wrap;
+    border-top: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: 0.2s;
+    color: inherit;
+  }
+
+  a:hover {
+    background-color: var(--sl-color-accent-low);
+    color: var(--sl-color-accent-high);
+  }
+
+  @media (max-width: 50rem) {
+    footer {
+      justify-content: center;
+    }
+
+    .social {
+      flex-direction: column;
+    }
+  }
+</style>

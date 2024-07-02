@@ -179,6 +179,7 @@ export default defineConfig({
       components: {
         Hero: "./src/components/starlight/Hero.astro",
         Head: "./src/components/starlight/Head.astro",
+        SiteTitle: "./src/components/starlight/SiteTitle.astro",
       },
       tableOfContents: {
         minHeadingLevel: 2,

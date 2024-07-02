@@ -1,16 +1,41 @@
 ---
 title: Express - Node.js web application framework
 template: splash
+
+banner:
+  content: |
+    <a href="5x/api/">Express 5.0</a> beta documentation is available.
+
 hero:
-  title: Express
-  tagline: Fast, unopinionated, minimalist web framework for Node.js
+  title: Web framework for Node.js
+  tagline: Fast, unopinionated and minimalist
   actions:
     - text: Get started
-      link: /starter
+      link: /starter/installing
       icon: right-arrow
       variant: primary
     - text: View on GitHub
-      link: https://github.com/biomejs/biome
+      link: https://github.com/expressjs/express
       icon: external
       variant: secondary
 ---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+import Footer from "@/components/Footer.astro";
+
+<CardGrid stagger>
+    <Card title="Web Applications" icon="rss">
+      Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+    </Card>
+    <Card title="APIs" icon="pencil">
+      With a myriad of HTTP utility methods and middleware at your disposal, creating a robust API is quick and easy. 
+    </Card>
+    <Card title="Performance" icon="rocket">
+    Express provides a thin layer of fundamental web application features, without obscuring Node.js features that you know and love.
+    </Card>
+    <Card title="Middleware" icon="puzzle">
+  Express is a lightweight and flexible routing framework with minimal core features meant to be augmented through the use of Express [middleware](/resources/middleware) modules
+    </Card>
+</CardGrid>
+
+<Footer/>

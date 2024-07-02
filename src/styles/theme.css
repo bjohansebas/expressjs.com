@@ -28,3 +28,11 @@
   --sl-color-gray-7: #f6f6f6;
   --sl-color-black: #ffffff;
 }
+
+.title-wrapper div {
+  align-items: initial;
+}
+
+.site-title img {
+  height: 25px;
+}
