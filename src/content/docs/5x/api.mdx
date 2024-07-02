@@ -75,7 +75,7 @@ When a file is not found, instead of sending a 404 response, it instead calls `n
 to move on to the next middleware, allowing for stacking and fall-backs.
 
 The following table describes the properties of the `options` object.
-See also the [example below](#example.of.express.static).
+See also the [example below](#example-of-expressstatic).
 
 | Property      | Description                                                           |   Type      | Default         |
 |---------------|-----------------------------------------------------------------------|-------------|-----------------|
@@ -88,7 +88,7 @@ See also the [example below](#example.of.express.static).
 | `lastModified` | Set the `Last-Modified` header to the last modified date of the file on the OS. | Boolean | `true` |
 | `maxAge`      | Set the max-age property of the Cache-Control header in milliseconds or a string in [ms format](https://www.npmjs.org/package/ms). | Number | 0 |
 | `redirect`    | Redirect to trailing "/" when the pathname is a directory. | Boolean | `true` |
-| `setHeaders`  | Function for setting HTTP headers to serve with the file. <br/><br/>See [setHeaders](#setHeaders) below. | Function |  |
+| `setHeaders`  | Function for setting HTTP headers to serve with the file. <br/><br/>See [setHeaders](#setheaders) below. | Function |  |
 
 For more information, see [Serving static files in Express](/starter/static-files).
 and [Using middleware - Built-in middleware](/guide/using-middleware#built-in-middleware).
@@ -254,7 +254,7 @@ The Express application object can be referred from the [request object](#reques
 #### app.locals
 
 The `app.locals` object has properties that are local variables within the application,
-and will be available in templates rendered with [res.render](#response.render).
+and will be available in templates rendered with [res.render](#resrenderview--locals--callback).
 
 ```js
 console.dir(app.locals.title)
@@ -265,12 +265,12 @@ console.dir(app.locals.email)
 ```
 
 Once set, the value of `app.locals` properties persist throughout the life of the application,
-in contrast with [res.locals](#response.locals) properties that
+in contrast with [res.locals](#reslocals) properties that
 are valid only for the lifetime of the request.
 
 You can access local variables in templates rendered within the application.
 This is useful for providing helper functions to templates, as well as application-level data.
-Local variables are available in middleware via `req.app.locals` (see [req.app](#request.app))
+Local variables are available in middleware via `req.app.locals` (see [req.app](#reqapp))
 
 ```js
 app.locals.title = 'My App'
@@ -303,7 +303,7 @@ admin.get('/', (req, res) => {
 app.use('/admin', admin) // mount the sub app
 ```
 
-It is similar to the [baseUrl](#request.baseUrl) property of the `req` object, except `req.baseUrl`
+It is similar to the [baseUrl](#reqbaseurl) property of the `req` object, except `req.baseUrl`
 returns the matched URL path, instead of the matched patterns.
 
 If a sub-app is mounted on multiple path patterns, `app.mountpath` returns the list of
@@ -365,7 +365,7 @@ Sub-apps will:
 * Not inherit the value of settings that have a default value. You must set the value in the sub-app.
 * Inherit the value of settings with no default value.
 
-For details, see [Application settings](/en/5x/api#application-settings).
+For details, see [Application settings](/5x/api#application-settings).
 :::
 
 ```js
@@ -1023,7 +1023,7 @@ console.log(blogAdmin.path()) // '/blog/admin'
 ```
 
 The behavior of this method can become very complicated in complex cases of mounted apps:
-it is usually better to use [req.baseUrl](#request.baseUrl) to get the canonical path of the app.
+it is usually better to use [req.baseUrl](#reqbaseurl) to get the canonical path of the app.
 
 </section>
 
@@ -1168,7 +1168,7 @@ app.put('/', (req, res) => {
 #### app.render(view, [locals], callback)
 
 Returns the rendered HTML of a view via the `callback` function. It accepts an optional parameter
-that is an object containing local variables for the view. It is like [res.render()](#response.render),
+that is an object containing local variables for the view. It is like [res.render()](#resrenderview--locals--callback),
 except it cannot send the rendered view to the client on its own.
 
 :::note
@@ -1276,7 +1276,7 @@ Sub-apps will not inherit the value of `view cache` in production (when `NODE_EN
       <td>
       Environment mode.
       Be sure to set to "production" in a production environment;
-      see <a href="/advanced/best-practice-performance#env">Production best practices: performance and reliability</a>.
+      see <a href="/advanced/best-practice-performance">Production best practices: performance and reliability</a>.
     </td>
   <td markdown="1">
   `process.env.NODE_ENV` (`NODE_ENV` environment variable) or "development" if `NODE_ENV` is not set.
@@ -1288,7 +1288,7 @@ Sub-apps will not inherit the value of `view cache` in production (when `NODE_EN
   </td>
   <td>Varied</td>
   <td markdown="1">
-  Set the ETag response header. For possible values, see the [`etag` options table](#etag.options.table).
+  Set the ETag response header. For possible values, see the [`etag` options table](#options-for-etag-setting).
 
   [More about the HTTP ETag header](http://en.wikipedia.org/wiki/HTTP_ETag).
   </td>
@@ -1668,7 +1668,7 @@ Sub-apps will:
 * Not inherit the value of settings that have a default value. You must set the value in the sub-app.
 * Inherit the value of settings with no default value.
 
-For details, see [Application settings](/en/5x/api#application-settings).
+For details, see [Application settings](/5x/api#application-settings).
 :::
 
 Middleware functions are executed sequentially, therefore the order of middleware inclusion is important.
@@ -2069,14 +2069,14 @@ console.dir(req.cookies.name)
 // => "tj"
 ```
 
-If the cookie has been signed, you have to use [req.signedCookies](#request.signedCookies).
+If the cookie has been signed, you have to use [req.signedCookies](#reqsignedcookies).
 
 For more information, issues, or concerns, see [cookie-parser](https://github.com/expressjs/cookie-parser).
 
 </section>
 
 <section markdown="1">
-<h3 id='req.fresh'>req.fresh</h3>
+#### req.fresh
 
 When the response is still "fresh" in the client's cache `true` is returned, otherwise `false` is returned to indicate that the client cache is now stale and the full response should be sent.
 
@@ -2097,7 +2097,7 @@ console.dir(req.fresh)
 
 Contains the host derived from the `Host` HTTP header.
 
-When the [`trust proxy` setting](api#application-settings)
+When the [`trust proxy` setting](#options-for-trust-proxy-setting)
 does not evaluate to `false`, this property will instead get the value
 from the `X-Forwarded-Host` header field. This header can be set by
 the client or by the proxy.
@@ -2372,7 +2372,7 @@ For more information, issues, or concerns, see [cookie-parser](https://github.co
 #### req.stale
 
 Indicates whether the request is "stale," and is the opposite of `req.fresh`.
-For more information, see [req.fresh](#request.fresh).
+For more information, see [req.fresh](#reqfresh).
 
 ```js
 console.dir(req.stale)
@@ -2600,7 +2600,7 @@ and supports all [built-in fields and methods](https://nodejs.org/api/http.html#
 
 This property holds a reference to the instance of the Express application that is using the middleware.
 
-`res.app` is identical to the [req.app](#request.app) property in the request object.
+`res.app` is identical to the [req.app](#reqapp) property in the request object.
 
 </section>
 
@@ -2622,7 +2622,7 @@ app.get('/', (req, res) => {
 <section markdown="1">
 #### res.locals
 
-Use this property to set variables accessible in templates rendered with [res.render](#response.render).
+Use this property to set variables accessible in templates rendered with [res.render](#resrenderview--locals--callback).
 The variables set on `res.locals` are available within a single request-response cycle, and will not
 be shared between requests.
 
@@ -2762,18 +2762,18 @@ Then, `res.cookie()` will use the secret passed to `cookieParser(secret)` to sig
 res.cookie('name', 'tobi', { signed: true })
 ```
 
-Later, you may access this value through the [req.signedCookies](#request.signedCookies) object.
+Later, you may access this value through the [req.signedCookies](#reqsignedcookies) object.
 
 </section>
 
 <section markdown="1">
 #### res.clearCookie(name [, options])
 
-Clears the cookie specified by `name`. For details about the `options` object, see [res.cookie()](#response.cookie).
+Clears the cookie specified by `name`. For details about the `options` object, see [res.cookie()](#rescookiename-value--options).
 
 :::caution
 Web browsers and other compliant clients will only clear the cookie if the given
-`options` is identical to those given to [res.cookie()](#response.cookie), excluding
+`options` is identical to those given to [res.cookie()](#rescookiename-value--options), excluding
 `expires` and `maxAge`.
 :::
 
@@ -2842,7 +2842,7 @@ res.download('/report-12345.pdf', 'report.pdf', (err) => {
 
 Ends the response process. This method actually comes from Node core, specifically the [response.end() method of  http.ServerResponse](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback).
 
-Use to quickly end the response without any data. If you need to respond with data, instead use methods such as [res.send()](#response.send) and [res.json()](#response.json).
+Use to quickly end the response without any data. If you need to respond with data, instead use methods such as [res.send()](#ressendbody) and [res.json()](#resjsonbody).
 
 ```js
 res.end()
@@ -2855,7 +2855,7 @@ res.status(404).end()
 #### res.format(object)
 
 Performs content-negotiation on the `Accept` HTTP header on the request object, when present.
-It uses [req.accepts()](#request.accepts) to select a handler for the request, based on the acceptable
+It uses [req.accepts()](#reqacceptstypes) to select a handler for the request, based on the acceptable
 types ordered by their quality values. If the header is not specified, the first callback is invoked.
 When no match is found, the server responds with 406 "Not Acceptable", or invokes the `default` callback.
 

@@ -90,10 +90,10 @@ Enabling `trust proxy` will have the following impact:
   <li markdown="1">
     `X-Forwarded-Proto` can be set by the reverse proxy to tell the app whether
     it is `https` or `http` or even an invalid name. This value is reflected by
-    [req.protocol](/api#reqprotocol).
+    [req.protocol](/4x/api#reqprotocol).
   </li>
   <li markdown="1">
-    The [req.ip](/api#reqip) and [req.ips](/api#reqips) values are
+    The [req.ip](/4x/api#reqip) and [req.ips](/4x/api#reqips) values are
     populated based on the socket address and `X-Forwarded-For` header, starting
     at the first untrusted address.
   </li>
