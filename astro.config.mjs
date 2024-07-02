@@ -1,5 +1,7 @@
-import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
+
+import starlight from "@astrojs/starlight";
+import starlightLinksValidator from "starlight-links-validator";
 import { bundledLanguages } from "./node_modules/shiki";
 
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
@@ -191,7 +193,18 @@ export default defineConfig({
         dark: "./public/logotype/logotype-dark.svg",
         replacesTitle: true,
       },
+      editLink: {
+        baseUrl: "https://github.com/bjohansebas/expressjs.com/edit/astro/",
+      },
       customCss: ["./src/styles/theme.css", "./src/styles/heading.css"],
+      plugins: process.env.CHECK_LINKS
+        ? [
+            starlightLinksValidator({
+              errorOnFallbackPages: false,
+              errorOnInconsistentLocale: true,
+            }),
+          ]
+        : [],
     }),
   ],
   markdown: {
